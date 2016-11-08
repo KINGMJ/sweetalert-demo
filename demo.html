@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/sweetalert.css" rel="stylesheet">
+</head>
+<body>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+	打开模态框 
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+        <h4 class="modal-title" id="myModalLabel">模态框案例</h4>
+      </div>
+      <div class="modal-body">
+      	<div class="form-group">
+      		<textarea name="" id="myInput" cols="30" rows="10" class="form-control"></textarea>
+      	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<script>
+	var input_val_before="";
+	$(function(){
+		$('#myModal').on('hide.bs.modal', function (e) {
+			var input_val=$("#myInput").val().trim();  
+ 			if(input_val_before!=input_val){
+ 				e.preventDefault();
+ 				swal({
+                	title: "",
+                	text: "编辑框内容尚未保存，请选择保存或者取消",
+                	type: "warning",
+                	showCancelButton: true,
+                	confirmButtonText: "保存",
+                	confirmButtonColor: "#5cb85c",
+                	cancelButtonText: "取消"
+            	}, function (isConfirm) {
+                	if (isConfirm) {
+                		input_val_before=input_val;
+                    	alert("保存成功");
+                	} else {
+                		$("#myInput").val(input_val_before);
+                    	alert("取消");
+                	}
+                	$("#myModal").modal("hide");
+            	});
+ 			}
+		});
+	});
+</script>
+</body>
+</html>
