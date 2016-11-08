@@ -46,6 +46,7 @@
                 	title: "",
                 	text: "编辑框内容尚未保存，请选择保存或者取消",
                 	type: "warning",
+					allowEscapeKey:false,
                 	showCancelButton: true,
                 	confirmButtonText: "保存",
                 	confirmButtonColor: "#5cb85c",
@@ -53,10 +54,10 @@
             	}, function (isConfirm) {
                 	if (isConfirm) {
                 		input_val_before=input_val;
-                    	alert("保存成功");
+                    	console.log("保存成功");
                 	} else {
                 		$("#myInput").val(input_val_before);
-                    	alert("取消");
+                    	console.log("取消");
                 	}
                 	$("#myModal").modal("hide");
             	});
