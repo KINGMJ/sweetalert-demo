@@ -11,7 +11,7 @@ bootstrap &amp; sweetalert demo
 ## 基本用法
 文档里面已经讲得十分详细，不过刚使用时没仔细看不知道**怎样响应取消的点击事件**
 看下面这个例子，第9行通过```isConfirm```来判断是否保存还是取消，只需判断一下就可以了
-```
+```js
 swal({
     title: "",
     text: "卡片描述尚未保存，请选择保存或者取消",
@@ -33,7 +33,7 @@ swal({
 
 ## 样式修改
 看上面这张图，保存是在左边的。原项目和这个相反，通过css可以简单的改变位置
-```
+```css
 //给保存按钮加个左浮动
 .sweet-alert .sa-confirm-button-container{
     display: inline-block;
@@ -60,7 +60,7 @@ swal({
 
 ![image_1b11pfpkb1rjv18be1uae1piq8dg9.png-24kB][2]
 
-```
+```js
 var input_val_before="";
 $(function(){
     $('#myModal').on('hide.bs.modal', function (e) {
