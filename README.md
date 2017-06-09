@@ -33,26 +33,15 @@ swal({
 ## 样式修改
 看上面这张图，保存是在左边的。原项目和这个相反，通过css可以简单的改变位置
 ```css
-//给保存按钮加个左浮动
-.sweet-alert .sa-confirm-button-container{
-    display: inline-block;
-    position: relative;
-    float: left;
-}
-
-//取消按钮右浮动
-.sweet-alert button.cancel {
-    background-color: #C1C1C1;
-    float: right;
-}
-
-//按钮的上一层设置一下宽度
-.sa-button-container {
-    width: 50%;
-    margin: 0 auto;
-    overflow: hidden;
+//使用css3的flex属性
+.sa-button-container{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    flex-direction: row-reverse;
 }
 ```
+其他地方修改了圆角和按钮字体的大小
 
 ## Bootstrap模态框结合使用
 >在使用Bootstrap模态框做表单提交时，为防止用户不小心关掉模态框导致内容丢失，我们可以在触发模态框关闭事件时判断用户是否输入新的内容。如果输入了新的内容，则弹出sweetalert对话框，提示用户保存信息。
